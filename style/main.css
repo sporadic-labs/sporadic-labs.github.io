@@ -1,0 +1,20 @@
+body {
+  font-size: 3em;
+  margin: 0;
+  font-family: "market_decoregular", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.banner h1 {
+  margin-bottom: 0px;
+}
+
+.banner h2 {
+  margin-top: 15px;
+  font-size: 0.8em;
+}
