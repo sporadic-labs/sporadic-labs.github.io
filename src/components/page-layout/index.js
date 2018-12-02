@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import Nav from "../nav";
-import style from "./index.module.css";
+import style from "./index.module.styl";
 
 const titleQuery = graphql`
   query {
