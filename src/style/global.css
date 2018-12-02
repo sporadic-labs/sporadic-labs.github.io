@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "market_decoregular";
+  src: url("../fonts/market_deco-webfont.woff2") format("woff2"),
+    url("../fonts/market_deco-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "market_decoregular", sans-serif;
+  font-size: 1.5rem;
+}
