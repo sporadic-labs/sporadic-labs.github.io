@@ -2,7 +2,7 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 const POST_TYPES = { GAME: "game", TOOL: "tool" };
-const gameTemplate = path.resolve("./src/templates/game.js");
+const gameTemplate = path.resolve("./src/templates/game/index.js");
 const isPathGame = path => path.match(/\/games\/.*\.md/); // Markdown file located in /games/
 const toolTemplate = path.resolve("./src/templates/tool.js");
 const isPathTool = path => path.match(/\/tools\/.*\.md/); // Markdown file located in /tools/

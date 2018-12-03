@@ -1,9 +1,15 @@
 import React, { PureComponent } from "react";
-import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import PageLayout from "../components/page-layout/";
+import PageLayout from "../../components/page-layout";
+import style from "./index.module.styl";
 
 class GameTemplate extends PureComponent {
+  componentDidMount() {
+    const iframe = document.querySelector(`.${style.markdownContent} iframe`);
+    iframe.width = iframe.offsetWidth;
+    iframe.height = iframe.width;
+  }
+
   render() {
     const post = this.props.data.markdownRemark;
     // const { previous, next } = this.props.pageContext;
@@ -12,7 +18,7 @@ class GameTemplate extends PureComponent {
       <PageLayout title={post.frontmatter.title}>
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className={style.markdownContent} dangerouslySetInnerHTML={{ __html: post.html }} />
       </PageLayout>
     );
   }
