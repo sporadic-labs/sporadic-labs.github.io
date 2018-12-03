@@ -2,22 +2,45 @@ import React, { PureComponent } from "react";
 import { graphql } from "gatsby";
 import PageLayout from "../../components/page-layout";
 import style from "./index.module.styl";
+import resizeEvent from "../../utils/resize-event";
 
 class GameTemplate extends PureComponent {
+  iframeRef = React.createRef();
+
   componentDidMount() {
-    const iframe = document.querySelector(`.${style.markdownContent} iframe`);
-    iframe.width = iframe.offsetWidth;
-    iframe.height = iframe.width;
+    this.onResize();
+    resizeEvent.addListener(this.onResize);
   }
+
+  componentWillUnmount() {
+    resizeEvent.removeListener(this.onResize);
+  }
+
+  onResize = () => {
+    const post = this.props.data.markdownRemark;
+    const { maxGameWidth, maxGameHeight, gameAspectRatio } = post.frontmatter;
+
+    // Figure out a scale factor that fits the window size while respecting the aspect ratio and max
+    // width and height
+    const widthScale = Math.min(maxGameWidth, innerWidth) / gameAspectRatio;
+    const heightScale = Math.min(maxGameHeight, innerHeight);
+    const scale = Math.min(widthScale, heightScale);
+    const width = gameAspectRatio * scale;
+    const height = width / gameAspectRatio;
+    this.iframeRef.current.width = width;
+    this.iframeRef.current.height = height;
+  };
 
   render() {
     const post = this.props.data.markdownRemark;
+    const { gameSource, title, date } = post.frontmatter;
     // const { previous, next } = this.props.pageContext;
 
     return (
-      <PageLayout title={post.frontmatter.title}>
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
+      <PageLayout title={title}>
+        <h1>{title}</h1>
+        <p>{date}</p>
+        <iframe className={style.iframe} ref={this.iframeRef} src={gameSource} frameBorder="0" />
         <div className={style.markdownContent} dangerouslySetInnerHTML={{ __html: post.html }} />
       </PageLayout>
     );
@@ -40,6 +63,10 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        maxGameWidth
+        maxGameHeight
+        gameAspectRatio
+        gameSource
       }
     }
   }
