@@ -9,6 +9,7 @@
 .nav
   font-family header-font-stack
   display flex
+  flex-wrap wrap
   justify-content space-between
   align-items flex-end
   padding 1.25rem 0
@@ -19,8 +20,12 @@
 .logo
   font-size 2.25rem
   letter-spacing -0.15rem
+  flex 0 0 100%
   a 
     @extend .unstyle-link
+  
+  @media (min-width: 500px)
+    flex: auto
 
 .link
   @extend .unstyle-link
