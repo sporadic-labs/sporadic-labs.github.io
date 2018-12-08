@@ -1,5 +1,7 @@
+@import "./variables.styl"
+
 @font-face {
-  font-family: "market_decoregular";
+  font-family: "Market Deco";
   src: url("../fonts/market_deco-webfont.woff2") format("woff2"),
     url("../fonts/market_deco-webfont.woff") format("woff");
   font-weight: normal;
@@ -10,7 +12,15 @@ html, body
   margin 0
   padding 0
 
+html {
+  font-size: 18px;
+}
+
 body {
-  font-family: "market_decoregular", sans-serif;
+  font-family: body-font-stack;
   font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: header-font-stack;
 }
