@@ -23,9 +23,9 @@ class Tools extends PureComponent {
                     className={style.toolDescription}
                     dangerouslySetInnerHTML={{ __html: html }}
                   />
-                  <Link className={style.toolLink} to={frontmatter.link}>
+                  <a className={style.toolLink} href={frontmatter.link} target="_blank">
                     Repository
-                  </Link>
+                  </a>
                 </div>
               </li>
             );
