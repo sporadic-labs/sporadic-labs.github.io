@@ -17,7 +17,7 @@ class Tools extends PureComponent {
               <li key={id} className={style.tool}>
                 <img className={style.toolImage} src={frontmatter.thumbnail.publicURL} alt="" />
                 <div className={style.toolInfo}>
-                  <h2 className={style.toolTitle}>{frontmatter.title}</h2>
+                  <div className={style.toolTitle}>{frontmatter.title}</div>
                   <div
                     className={style.toolDescription}
                     dangerouslySetInnerHTML={{ __html: html }}
