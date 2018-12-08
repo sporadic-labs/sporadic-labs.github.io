@@ -10,11 +10,19 @@ class Nav extends PureComponent {
           <div className={style.logo}>
             <Link to="/">Sporadic Labs</Link>
           </div>
-          <div className={style.links}>
-            <Link to="/games">Games</Link>
-            <Link to="/tools">Tools</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+          <div>
+            <Link className={style.link} activeClassName={style.activeLink} to="/games">
+              Games
+            </Link>
+            <Link className={style.link} activeClassName={style.activeLink} to="/tools">
+              Tools
+            </Link>
+            <Link className={style.link} activeClassName={style.activeLink} to="/about">
+              About
+            </Link>
+            <Link className={style.link} activeClassName={style.activeLink} to="/contact">
+              Contact
+            </Link>
           </div>
         </nav>
       </div>
