@@ -1,0 +1,51 @@
+@import "../../style/variables.styl"
+
+unstyle-link()
+  &, &:visited, &:hover, &:active 
+    font-style: inherit;
+    color: inherit;
+    background-color: transparent;
+    font-size: inherit;
+    text-decoration: none;
+    font-variant: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+
+.navContainer
+  position relative
+
+  &:after
+    content ""
+    position absolute
+    top 100%
+    left 0
+    right 0
+    border-bottom 5px solid #E7E7E8
+
+.nav
+  font-family header-font-stack
+  display flex
+  justify-content space-between
+  align-items flex-end
+  padding 1rem 0 
+  max-width 800px
+  margin 0 auto
+
+.logo
+  font-size 2.25rem
+  letter-spacing -0.15rem
+  a 
+    unstyle-link()
+
+.links
+  font-size 1.25rem
+  a 
+    unstyle-link()
+    padding 0 0.75rem
+    
+    &:first-child
+      padding-left 0
+
+    &:last-child
+      padding-right 0

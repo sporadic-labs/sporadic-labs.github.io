@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Nav from "../nav";
+import Nav from "../nav/";
 import style from "./index.module.styl";
 
 const titleQuery = graphql`
@@ -25,11 +25,10 @@ class PageLayout extends PureComponent {
           const pageTitle = title ? `${siteTitle} | ${title}` : siteTitle;
 
           return (
-            <div className={style.container}>
+            <div>
               <Helmet htmlAttributes={{ lang: "en" }} title={pageTitle} />
-              <div>Sporadic Labs</div>
               <Nav />
-              {children}
+              <div className={style.container}>{children}</div>
             </div>
           );
         }}
