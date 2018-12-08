@@ -10,7 +10,6 @@ class Tools extends PureComponent {
 
     return (
       <PageLayout title="Tools">
-        <h1>Tools</h1>
         <ul className={style.toolsList}>
           {pages.map(({ node }) => {
             const { id, html, frontmatter } = node;

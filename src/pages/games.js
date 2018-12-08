@@ -9,7 +9,6 @@ class Games extends PureComponent {
 
     return (
       <PageLayout title="Games">
-        <h1>Games</h1>
         <ul>
           {pages.map(({ node }) => {
             return (
