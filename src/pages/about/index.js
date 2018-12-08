@@ -20,7 +20,10 @@ export default () => (
     <div className={style.authors}>
       <div className={style.authorCard}>
         <h3>Mike Hadley</h3>
-        <div>Some short blurb about Mike...?</div>
+        <div>
+          Mike is a developer, educator and artist who translates creative ideas into code and
+          teaches others how to do the same.
+        </div>
         <a
           className={style.authorLinks}
           href="https://www.mikewesthad.com/"
@@ -40,7 +43,10 @@ export default () => (
       </div>
       <div className={style.authorCard}>
         <h3>Rex Twedt</h3>
-        <div>Some short blurb about Rex...?</div>
+        <div>
+          Rex is an artist and developer with an interest in science, and making science accessible
+          to everybody.
+        </div>
         <a
           className={style.authorLinks}
           href="https://rextwedt.com/"
