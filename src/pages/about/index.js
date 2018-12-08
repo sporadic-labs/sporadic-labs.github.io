@@ -2,6 +2,7 @@ import React from "react";
 import PageLayout from "../../components/page-layout/";
 import style from "./index.module.styl";
 import GithubSvg from "./github.svg";
+import WebsitePng from "./website.png";
 
 export default () => (
   <PageLayout title="About">
@@ -19,13 +20,14 @@ export default () => (
     <div className={style.authors}>
       <div className={style.authorCard}>
         <h3>Mike Hadley</h3>
+        <div>Some short blurb about Mike...?</div>
         <a
           className={style.authorLinks}
           href="https://www.mikewesthad.com/"
           target="_blank"
           alt="Mike's website!"
         >
-          Website
+          <img className={style.websiteLogo} src={WebsitePng} alt="Website Logo" />
         </a>
         <a
           className={style.authorLinks}
@@ -38,13 +40,14 @@ export default () => (
       </div>
       <div className={style.authorCard}>
         <h3>Rex Twedt</h3>
+        <div>Some short blurb about Rex...?</div>
         <a
           className={style.authorLinks}
           href="https://rextwedt.com/"
           target="_blank"
           alt="Rex's website!"
         >
-          Website
+          <img className={style.websiteLogo} src={WebsitePng} alt="Website Logo" />
         </a>
         <a
           className={style.authorLinks}
