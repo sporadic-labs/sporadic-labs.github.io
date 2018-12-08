@@ -1,0 +1,31 @@
+.toolsList
+  list-style none
+  margin 0
+  padding 0
+
+.tool
+  display flex
+  align-items flex-start
+  margin-bottom 1.25rem
+
+  .toolImage
+    height 150px
+    width auto
+    padding-right: 1rem
+
+.toolImage
+  width 100%
+
+.toolTitle
+  margin-top 0
+  margin-bottom 1rem
+
+.toolDescription
+  // Remove margin around the contents of the description
+  & > *:first-child
+    margin-top 0
+  & > *:last-child
+    margin-bottom 0
+    
+  margin-bottom 1rem
+  

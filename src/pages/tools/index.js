@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { graphql, Link } from "gatsby";
-import PageLayout from "../components/page-layout/";
+import PageLayout from "../../components/page-layout";
+import style from "./index.module.styl";
 
 class Tools extends PureComponent {
   render() {
@@ -10,16 +11,22 @@ class Tools extends PureComponent {
     return (
       <PageLayout title="Tools">
         <h1>Tools</h1>
-        <ul>
+        <ul className={style.toolsList}>
           {pages.map(({ node }) => {
+            const { id, html, frontmatter } = node;
             return (
-              <li key={node.id}>
-                <Link to={node.fields.slug}>
-                  <figure>
-                    <img width="300" src={node.frontmatter.thumbnail.publicURL} alt="" />
-                    <figcaption>{node.frontmatter.title}</figcaption>
-                  </figure>
-                </Link>
+              <li key={id} className={style.tool}>
+                <img className={style.toolImage} src={frontmatter.thumbnail.publicURL} alt="" />
+                <div className={style.toolInfo}>
+                  <h2 className={style.toolTitle}>{frontmatter.title}</h2>
+                  <div
+                    className={style.toolDescription}
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
+                  <Link className={style.toolLink} to={frontmatter.link}>
+                    Repository
+                  </Link>
+                </div>
               </li>
             );
           })}
@@ -40,7 +47,6 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt
           html
           fields {
             postType
@@ -49,6 +55,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MM/DD/YY")
+            link
             thumbnail {
               publicURL
             }
