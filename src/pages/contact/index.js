@@ -26,7 +26,7 @@ export default () => (
         <textarea className={style.control} name="message" rows="4" id="contact-message" />
       </div>
       <div className={style.field}>
-        <input type="submit" value="Send →" />
+        <input className={style.submitBtn} type="submit" value="Send →" />
       </div>
       <input type="text" name="_gotcha" style={{ display: "none" }} />
       <input type="hidden" name="_subject" value="Sporadic Labs Contact" />
