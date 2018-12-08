@@ -38,9 +38,9 @@ class GameTemplate extends PureComponent {
 
     return (
       <PageLayout title={title}>
+        <iframe className={style.iframe} ref={this.iframeRef} src={gameSource} frameBorder="0" />
         <h1>{title}</h1>
         <p>{date}</p>
-        <iframe className={style.iframe} ref={this.iframeRef} src={gameSource} frameBorder="0" />
         <div className={style.markdownContent} dangerouslySetInnerHTML={{ __html: post.html }} />
       </PageLayout>
     );
