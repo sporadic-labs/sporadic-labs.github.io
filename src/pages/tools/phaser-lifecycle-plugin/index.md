@@ -1,7 +1,7 @@
 ---
 title: "Phaser Lifecycle Plugin"
 date: "2015-05-01T22:12:03.284Z"
-thumbnail: "./tool.gif"
+thumbnail: "./phaser-lifecycle.png"
 link: "https://github.com/sporadic-labs/phaser-lifecycle-plugin"
 ---
 
