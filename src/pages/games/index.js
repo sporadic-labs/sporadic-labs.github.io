@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { graphql, Link } from "gatsby";
-import PageLayout from "../components/page-layout/";
+import PageLayout from "../../components/page-layout";
+import style from "./index.module.styl";
 
 class Games extends PureComponent {
   render() {
@@ -9,15 +10,17 @@ class Games extends PureComponent {
 
     return (
       <PageLayout title="Games">
-        <ul>
+        <ul className={style.gamesList}>
           {pages.map(({ node }) => {
             return (
-              <li key={node.id}>
+              <li key={node.id} className={style.game}>
                 <Link to={node.fields.slug}>
-                  <figure>
-                    <img width="300" src={node.frontmatter.thumbnail.publicURL} alt="" />
-                    <figcaption>{node.frontmatter.title}</figcaption>
-                  </figure>
+                  <img
+                    className={style.gameImage}
+                    src={node.frontmatter.thumbnail.publicURL}
+                    alt=""
+                  />
+                  <div className={style.gameTitle}>{node.frontmatter.title}</div>
                 </Link>
               </li>
             );
