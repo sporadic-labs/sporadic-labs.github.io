@@ -1,34 +1,29 @@
 @import "../../style/variables.styl"
 
-unstyle-link()
+.unstyle-link
   &, &:visited, &:hover, &:active 
-    font-style: inherit;
     color: inherit;
     background-color: transparent;
     text-decoration: none;
-    font-variant: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    font-family: inherit;
 
 .nav
   font-family header-font-stack
   display flex
   justify-content space-between
   align-items flex-end
-  padding 1rem 0
+  padding 1.25rem 0
   width 100%
   max-width 800px
-  margin 0 auto
+  margin 0 auto 1.75rem auto
 
 .logo
   font-size 2.25rem
   letter-spacing -0.15rem
   a 
-    unstyle-link()
+    @extend .unstyle-link
 
 .link
-  unstyle-link()
+  @extend .unstyle-link
   font-size 1.25rem
   padding 0 0.75rem
 
