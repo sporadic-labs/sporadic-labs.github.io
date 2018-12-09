@@ -1,7 +1,7 @@
 @import "../../style/variables.styl"
 
 .unstyle-link
-  &, &:visited, &:hover, &:active 
+  &, &:visited, &:hover, &:active
     color: inherit;
     background-color: transparent;
     text-decoration: none;
@@ -21,9 +21,9 @@
   font-size 2.25rem
   letter-spacing -0.15rem
   flex 0 0 100%
-  a 
+  a
     @extend .unstyle-link
-  
+
   @media (min-width: 500px)
     flex: auto
 
@@ -39,3 +39,5 @@
 
 .activeLink
   text-decoration underline
+  &:hover
+    text-decoration underline
