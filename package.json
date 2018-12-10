@@ -44,6 +44,6 @@
     "dev": "gatsby develop --open",
     "start": "npm run develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages --dist public --branch master"
   }
 }
