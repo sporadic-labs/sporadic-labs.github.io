@@ -15,7 +15,9 @@ class Tools extends PureComponent {
             const { id, html, frontmatter } = node;
             return (
               <li key={id} className={style.tool}>
-                <img className={style.toolImage} src={frontmatter.thumbnail.publicURL} alt="" />
+                <div className={style.toolImage}>
+                  <img src={frontmatter.thumbnail.publicURL} alt="" />
+                </div>
                 <div className={style.toolInfo}>
                   <div className={style.toolTitle}>{frontmatter.title}</div>
                   <div
