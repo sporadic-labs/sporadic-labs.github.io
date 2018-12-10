@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Sporadic Labs",
+    description: "Sporadic Labs portfolio site",
     siteUrl: "https://sporadic-labs.github.io/"
   },
   pathPrefix: ".",
@@ -57,6 +58,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-stylus`,
+    `gatsby-plugin-stylus`
   ]
 };
