@@ -4,7 +4,6 @@ module.exports = {
     description: "Sporadic Labs portfolio site",
     siteUrl: "https://sporadic-labs.github.io/"
   },
-  pathPrefix: ".",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
