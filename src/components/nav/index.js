@@ -43,6 +43,12 @@ const PosedOverlayDiv = posed.div({
   }
 });
 
+const logo = (
+  <div className={style.logo}>
+    <Link to="/">Sporadic Labs</Link>
+  </div>
+);
+
 class CollapsedNav extends PureComponent {
   state = {
     isOpen: false
@@ -57,9 +63,7 @@ class CollapsedNav extends PureComponent {
     return (
       <Container>
         <nav className={style.collapsedNav}>
-          <div className={style.logo}>
-            <Link to="/">Sporadic Labs</Link>
-          </div>
+          {logo}
           <button disabled={isOpen} className={style.openButton}>
             <img src={menuIconSrc} alt="Open Menu" onClick={this.openMenu} role="button" />
           </button>
@@ -87,9 +91,7 @@ class ExpandedNav extends PureComponent {
     return (
       <Container>
         <nav className={style.nav}>
-          <div className={style.logo}>
-            <Link to="/">Sporadic Labs</Link>
-          </div>
+          {logo}
           <div>{links}</div>
         </nav>
       </Container>
