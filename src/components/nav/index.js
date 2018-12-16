@@ -73,11 +73,14 @@ class ExpandedNav extends PureComponent {
 
 class Nav extends PureComponent {
   state = {
-    width: window.innerWidth
+    // Gatsby renders out HTML on the server, so we don't know the width until we've mounted.
+    // Optimistically assume it's a small device
+    width: 400
   };
 
   componentDidMount() {
     resizeEvent.addListener(this.onResize);
+    this.onResize();
   }
 
   componentWillUnmount() {
