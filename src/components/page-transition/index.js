@@ -21,10 +21,15 @@ const PosedFadingDiv = posed.div({
   }
 });
 
+/**
+ * A component that wraps around pages and transitions between them as the route changes
+ */
 class PageTransition extends PureComponent {
   render() {
     const { children, location } = this.props;
 
+    // PosedGroup animates children as they are mounted/unmounted - it is important that each
+    // child's key matches the URL, so that the PosedGroup can keep track of them
     return (
       <PoseGroup>
         <PosedFadingDiv key={location.pathname}>{children}</PosedFadingDiv>
