@@ -6,7 +6,7 @@
     background-color: transparent;
     text-decoration: none;
 
-.nav
+.nav, .collapsedNav
   font-family header-font-stack
   display flex
   flex-wrap wrap
@@ -16,15 +16,14 @@
   width 100%
   margin 0 auto 1.75rem auto
 
+.collapsedNav
+  align-items center
+
 .logo
   font-size 2.25rem
   letter-spacing -0.15rem
-  flex 0 0 100%
   a
     @extend .unstyle-link
-
-  @media (min-width: 500px)
-    flex: auto
 
 .link
   @extend .unstyle-link
@@ -40,3 +39,59 @@
   text-decoration underline
   &:hover
     text-decoration underline
+
+.collapsedOverlayMenu
+  position: fixed;
+  z-index: 100;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+.overlay
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+
+.overlayLinks
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .link
+    font-size: 2.5rem;
+    padding: 1.5rem 0;
+
+.openButton, .closeButton
+  padding: 0;
+  background: none;
+  border: 0;
+
+.openButton
+  width: 2rem;
+  height: 2rem;
+
+  img
+    width: 100%;
+    height: 100%;
+
+  &:disabled
+    display: none;
+
+.closeButton
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  img
+    width: 100%;
+    height: 100%;
