@@ -1,13 +1,15 @@
 import React, { PureComponent } from "react";
 import Nav from "../components/nav";
+import PageTransition from "../components/page-transition";
 
 export default class Layout extends PureComponent {
   render() {
-    const { children } = this.props;
+    const { children, location } = this.props;
+
     return (
       <div>
         <Nav />
-        {children}
+        <PageTransition location={location}>{children}</PageTransition>
       </div>
     );
   }
