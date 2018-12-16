@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import Nav from "../nav/";
-import style from "./index.module.styl";
+import Container from "../container";
 
 const titleQuery = graphql`
   query {
@@ -28,7 +28,7 @@ class PageLayout extends PureComponent {
             <div>
               <Helmet htmlAttributes={{ lang: "en" }} title={pageTitle} />
               <Nav />
-              <div className={style.container}>{children}</div>
+              <Container>{children}</Container>
             </div>
           );
         }}

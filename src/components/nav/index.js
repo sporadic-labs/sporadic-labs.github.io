@@ -1,11 +1,12 @@
 import React, { PureComponent } from "react";
 import { Link } from "gatsby";
 import style from "./index.module.styl";
+import Container from "../container";
 
 class Nav extends PureComponent {
   render() {
     return (
-      <div className={style.navContainer}>
+      <Container>
         <nav className={style.nav}>
           <div className={style.logo}>
             <Link to="/">Sporadic Labs</Link>
@@ -25,7 +26,7 @@ class Nav extends PureComponent {
             </Link>
           </div>
         </nav>
-      </div>
+      </Container>
     );
   }
 }
