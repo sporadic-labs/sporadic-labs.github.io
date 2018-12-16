@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import PageLayout from "../components/page-layout/";
+import Page from "../components/page/";
 
 class ToolTemplate extends PureComponent {
   render() {
@@ -9,11 +9,11 @@ class ToolTemplate extends PureComponent {
     // const { previous, next } = this.props.pageContext;
 
     return (
-      <PageLayout title={post.frontmatter.title}>
+      <Page title={post.frontmatter.title}>
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </PageLayout>
+      </Page>
     );
   }
 }

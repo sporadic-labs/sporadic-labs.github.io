@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { graphql, Link } from "gatsby";
-import PageLayout from "../components/page-layout";
+import Page from "../components/page";
 import style from "./index.module.styl";
 
 class Games extends PureComponent {
@@ -9,7 +9,7 @@ class Games extends PureComponent {
     const pages = data.allMarkdownRemark.edges;
 
     return (
-      <PageLayout title="Games">
+      <Page title="Games">
         <ul className={style.gamesList}>
           {pages.map(({ node }) => {
             return (
@@ -26,7 +26,7 @@ class Games extends PureComponent {
             );
           })}
         </ul>
-      </PageLayout>
+      </Page>
     );
   }
 }

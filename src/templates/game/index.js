@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { graphql } from "gatsby";
-import PageLayout from "../../components/page-layout";
+import Page from "../../components/page";
 import style from "./index.module.styl";
 import resizeEvent from "../../utils/resize-event";
 
@@ -37,12 +37,12 @@ class GameTemplate extends PureComponent {
     // const { previous, next } = this.props.pageContext;
 
     return (
-      <PageLayout title={title}>
+      <Page title={title}>
         <iframe className={style.iframe} ref={this.iframeRef} src={gameSource} frameBorder="0" />
         <h1>{title}</h1>
         <p>{date}</p>
         <div className={style.markdownContent} dangerouslySetInnerHTML={{ __html: post.html }} />
-      </PageLayout>
+      </Page>
     );
   }
 }

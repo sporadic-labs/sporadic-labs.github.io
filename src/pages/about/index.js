@@ -1,11 +1,11 @@
 import React from "react";
-import PageLayout from "../../components/page-layout/";
+import Page from "../../components/page/";
 import style from "./index.module.styl";
 import GithubSvg from "./github.svg";
 import WebsitePng from "./website.png";
 
 export default () => (
-  <PageLayout title="About">
+  <Page title="About">
     <h1>About Sporadic Labs</h1>
     <p>
       Mike and Rex were mild mannered researchers, working hard to solve the problems of the world
@@ -65,5 +65,5 @@ export default () => (
         </a>
       </div>
     </div>
-  </PageLayout>
+  </Page>
 );

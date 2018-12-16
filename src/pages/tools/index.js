@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { graphql, Link } from "gatsby";
-import PageLayout from "../../components/page-layout";
+import Page from "../../components/page";
 import style from "./index.module.styl";
 
 class Tools extends PureComponent {
@@ -9,7 +9,7 @@ class Tools extends PureComponent {
     const pages = data.allMarkdownRemark.edges;
 
     return (
-      <PageLayout title="Tools">
+      <Page title="Tools">
         <ul className={style.toolsList}>
           {pages.map(({ node }) => {
             const { id, html, frontmatter } = node;
@@ -37,7 +37,7 @@ class Tools extends PureComponent {
             );
           })}
         </ul>
-      </PageLayout>
+      </Page>
     );
   }
 }

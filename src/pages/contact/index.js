@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import PageLayout from "../../components/page-layout";
+import Page from "../../components/page";
 import style from "./index.module.styl";
 
 const defined = val => {
@@ -28,7 +28,7 @@ class Contact extends PureComponent {
 
   render() {
     return (
-      <PageLayout title="Contact">
+      <Page title="Contact">
         <h1>Get in Touch</h1>
         <p>Interested in our work? Or, maybe you just want to say hello? Drop us a line.</p>
         <form
@@ -80,7 +80,7 @@ class Contact extends PureComponent {
           <input type="text" name="_gotcha" style={{ display: "none" }} />
           <input type="hidden" name="_subject" value="Sporadic Labs Contact" />
         </form>
-      </PageLayout>
+      </Page>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Nav from "../nav/";
 import Container from "../container";
 
 const titleQuery = graphql`
@@ -14,7 +13,7 @@ const titleQuery = graphql`
   }
 `;
 
-class PageLayout extends PureComponent {
+class Page extends PureComponent {
   render() {
     const { title, children } = this.props;
     return (
@@ -27,7 +26,6 @@ class PageLayout extends PureComponent {
           return (
             <div>
               <Helmet htmlAttributes={{ lang: "en" }} title={pageTitle} />
-              <Nav />
               <Container>{children}</Container>
             </div>
           );
@@ -37,4 +35,4 @@ class PageLayout extends PureComponent {
   }
 }
 
-export default PageLayout;
+export default Page;
