@@ -75,7 +75,7 @@ class Nav extends PureComponent {
   state = {
     // Gatsby renders out HTML on the server, so we don't know the width until we've mounted.
     // Optimistically assume it's a small device
-    width: 400
+    showCollapsedNav: true
   };
 
   componentDidMount() {
@@ -88,12 +88,12 @@ class Nav extends PureComponent {
   }
 
   onResize = () => {
-    this.setState({ width: window.innerWidth });
+    this.setState({ showCollapsedNav: window.innerWidth < 750 });
   };
 
   render() {
-    const { width } = this.state;
-    return width > 700 ? <ExpandedNav /> : <CollapsedNav />;
+    const { showCollapsedNav } = this.state;
+    return showCollapsedNav ? <CollapsedNav /> : <ExpandedNav />;
   }
 }
 
