@@ -8,18 +8,10 @@ import closeIconSrc from "../../assets/close-menu-icon.svg";
 import resizeEvent from "../../utils/resize-event";
 
 const links = [
-  <Link key="games" className={style.link} activeClassName={style.activeLink} to="/">
-    Games
-  </Link>,
-  <Link key="tools" className={style.link} activeClassName={style.activeLink} to="/tools">
-    Tools
-  </Link>,
-  <Link key="about" className={style.link} activeClassName={style.activeLink} to="/about">
-    About
-  </Link>,
-  <Link key="contact" className={style.link} activeClassName={style.activeLink} to="/contact">
-    Contact
-  </Link>
+  { text: "Games", to: "/" },
+  { text: "Tools", to: "/tools" },
+  { text: "About", to: "/about" },
+  { text: "Contact", to: "/contact" }
 ];
 
 // Testing out posed as a tool for easier animation. When this posed div is added or removed from a
@@ -70,13 +62,23 @@ class CollapsedNav extends PureComponent {
         </nav>
         <PoseGroup animateOnMount={true}>
           {isOpen && (
-            <PosedOverlayDiv key="menu">
-              <div className={style.collapsedOverlayMenu}>
-                <button className={style.closeButton}>
-                  <img src={closeIconSrc} alt="Close Menu" onClick={this.closeMenu} role="button" />
-                </button>
-                <div className={style.overlay} />
-                <div className={style.overlayLinks}>{links}</div>
+            <PosedOverlayDiv key="menu" className={style.collapsedOverlayMenu}>
+              <button className={style.closeButton}>
+                <img src={closeIconSrc} alt="Close Menu" onClick={this.closeMenu} role="button" />
+              </button>
+              <div className={style.overlay} />
+              <div className={style.overlayLinks}>
+                {links.map(({ text, to }) => (
+                  <Link
+                    key={text}
+                    onClick={this.closeMenu}
+                    className={style.link}
+                    activeClassName={style.activeLink}
+                    to={to}
+                  >
+                    {text}
+                  </Link>
+                ))}
               </div>
             </PosedOverlayDiv>
           )}
@@ -92,7 +94,19 @@ class ExpandedNav extends PureComponent {
       <Container>
         <nav className={style.nav}>
           {logo}
-          <div>{links}</div>
+          <div>
+            {links.map(({ text, to }) => (
+              <Link
+                key={text}
+                onClick={this.closeMenu}
+                className={style.link}
+                activeClassName={style.activeLink}
+                to={to}
+              >
+                {text}
+              </Link>
+            ))}
+          </div>
         </nav>
       </Container>
     );
