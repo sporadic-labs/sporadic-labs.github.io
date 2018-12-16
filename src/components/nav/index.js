@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { Link } from "gatsby";
+import posed, { PoseGroup } from "react-pose";
 import style from "./index.module.styl";
 import Container from "../container";
 import menuIconSrc from "../../assets/menu-icon.svg";
@@ -20,6 +21,27 @@ const links = [
     Contact
   </Link>
 ];
+
+// Testing out posed as a tool for easier animation. When this posed div is added or removed from a
+// PosedGroup, it animates to the "enter" or "exit" poses as defined here
+const PosedOverlayDiv = posed.div({
+  enter: {
+    opacity: 1,
+    transition: {
+      type: "tween",
+      duration: 150,
+      ease: "easeOut"
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      type: "tween",
+      duration: 150,
+      ease: "easeIn"
+    }
+  }
+});
 
 class CollapsedNav extends PureComponent {
   state = {
@@ -42,15 +64,19 @@ class CollapsedNav extends PureComponent {
             <img src={menuIconSrc} alt="Open Menu" onClick={this.openMenu} role="button" />
           </button>
         </nav>
-        {isOpen && (
-          <div className={style.collapsedOverlayMenu}>
-            <button className={style.closeButton}>
-              <img src={closeIconSrc} alt="Close Menu" onClick={this.closeMenu} role="button" />
-            </button>
-            <div className={style.overlay} />
-            <div className={style.overlayLinks}>{links}</div>
-          </div>
-        )}
+        <PoseGroup animateOnMount={true}>
+          {isOpen && (
+            <PosedOverlayDiv key="menu">
+              <div className={style.collapsedOverlayMenu}>
+                <button className={style.closeButton}>
+                  <img src={closeIconSrc} alt="Close Menu" onClick={this.closeMenu} role="button" />
+                </button>
+                <div className={style.overlay} />
+                <div className={style.overlayLinks}>{links}</div>
+              </div>
+            </PosedOverlayDiv>
+          )}
+        </PoseGroup>
       </Container>
     );
   }
